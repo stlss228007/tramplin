@@ -1,0 +1,1 @@
+export { CuratorPage } from './CuratorPage';

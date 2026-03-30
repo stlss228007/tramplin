@@ -1,0 +1,183 @@
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modalContainer {
+  background: #1a1e2b;
+  border-radius: 36px;
+  max-width: 550px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modalContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.closeButton {
+  position: sticky;
+  top: 0;
+  float: right;
+  margin-top: -1rem;
+  margin-right: -1rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  border: none;
+  z-index: 10;
+  line-height: 1;
+  padding: 0;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: white;
+  clear: both;
+  padding-top: 0.5rem;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+  margin: 1rem 0 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  transition: 0.2s;
+  color: white;
+}
+
+.searchInput:focus {
+  border-color: #ffd757;
+  box-shadow: 0 0 0 3px rgba(255, 215, 87, 0.2);
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.filterGroup {
+  margin-bottom: 1.8rem;
+}
+
+.filterLabel {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.filterOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filterOption {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1.2rem;
+  border-radius: 40px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: 0.15s;
+  user-select: none;
+  font-family: inherit;
+  color: white;
+}
+
+.filterOption:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.filterOption.selected {
+  background: #ffd757;
+  color: #1a1e2b;
+  border-color: #ffd757;
+}
+
+.noResults {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  padding: 0.5rem 0;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.applyButton {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 60px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.15s;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.applyButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.resetButton {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  text-align: center;
+  padding: 1rem;
+  border-radius: 60px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.15s;
+  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.resetButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+}

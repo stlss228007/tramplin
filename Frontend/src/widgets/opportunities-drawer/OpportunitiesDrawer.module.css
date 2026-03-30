@@ -1,0 +1,187 @@
+.indicator {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px;
+  z-index: 50;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.indicator:hover {
+  opacity: 0.9;
+}
+
+.indicatorHandle {
+  background: rgba(30, 35, 55, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: none;
+}
+
+.indicatorBar {
+  width: 50px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+}
+
+.drawerContent {
+  border: none;
+  border-radius: 28px 28px 0 0;
+  max-height: 85vh;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 800px;
+  background: transparent;
+}
+
+.drawerContainer {
+  background: rgba(30, 35, 55, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 28px 28px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: none;
+}
+
+.innerHandle {
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+.innerHandleBar {
+  width: 50px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 0 24px;
+}
+
+.header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+}
+
+.count {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-weight: 600;
+  color: white;
+}
+
+.activeFilters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 24px 16px 24px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.clearFilters {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.75rem;
+  text-decoration: underline;
+  font-family: inherit;
+}
+
+.clearFilters:hover {
+  color: white;
+}
+
+.cardList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: calc(85vh - 140px);
+  overflow-y: auto;
+  padding: 0 24px 24px 24px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+}
+
+.cardList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cardList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.cardList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.cardList::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.emptyState i {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.emptyState p {
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.emptyStateButton {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 8px 24px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  color: white;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+
+.emptyStateButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.content {
+  padding: 0;
+}

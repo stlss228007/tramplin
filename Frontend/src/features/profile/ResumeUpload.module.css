@@ -1,0 +1,100 @@
+.resumeUpload {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.resumeInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  min-width: 0;
+  flex: 1;
+}
+
+.resumeInfo i {
+  font-size: 1.2rem;
+  color: #e74c3c;
+  flex-shrink: 0;
+}
+
+.fileName {
+  font-size: 0.9rem;
+  color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 200px;
+}
+
+.fileDate {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.uploadButton, .deleteButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: inherit;
+}
+
+.uploadButton {
+  color: white;
+}
+
+.uploadButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.uploadButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.deleteButton {
+  color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+.deleteButton:hover {
+  background: #e74c3c;
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .resumeUpload {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .buttons {
+    justify-content: flex-end;
+  }
+  
+  .fileName {
+    max-width: 150px;
+  }
+}

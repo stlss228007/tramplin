@@ -1,0 +1,75 @@
+.container {
+  position: relative;
+}
+
+.trigger {
+  width: 44px;
+  height: 44px;
+  background: rgba(30, 35, 55, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.trigger:hover {
+  background: #3e4a6b;
+}
+
+.menu {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  background: rgba(30, 35, 55, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  min-width: 160px;
+  overflow: hidden;
+  z-index: 100;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: left;
+}
+
+.menuItem i {
+  width: 20px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.menuItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+}

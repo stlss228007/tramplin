@@ -1,0 +1,17 @@
+export const FIXED_IDS = {
+  YANDEX_EMPLOYER: '11111111-1111-4111-8111-111111111111',
+  VK_EMPLOYER: '22222222-2222-4222-8222-222222222222',
+  SBER_EMPLOYER: '33333333-3333-4333-8333-333333333333',
+  TINKOFF_EMPLOYER: '44444444-4444-4444-8444-444444444444',
+  OZON_EMPLOYER: '55555555-5555-4555-8555-555555555555',
+  AVITO_EMPLOYER: '66666666-6666-4666-8666-666666666666',
+  ROGA_EMPLOYER: '77777777-7777-4777-8777-777777777777',
+  OPPORTUNITY_1: 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
+  OPPORTUNITY_2: 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
+  OPPORTUNITY_3: 'cccccccc-cccc-4ccc-8ccc-cccccccccccc',
+  OPPORTUNITY_4: 'dddddddd-dddd-4ddd-8ddd-dddddddddddd',
+  OPPORTUNITY_5: 'eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee',
+  OPPORTUNITY_6: 'ffffffff-ffff-4fff-8fff-ffffffffffff',
+  OPPORTUNITY_7: 'gggggggg-gggg-4ggg-8ggg-gggggggggggg',
+  OPPORTUNITY_8: 'hhhhhhhh-hhhh-4hhh-8hhh-hhhhhhhhhhhh',
+};

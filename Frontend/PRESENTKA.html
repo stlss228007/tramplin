@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Трамплин | Презентация проекта | IT-Планета 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #0a0e1a;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .slide {
+                page-break-after: always;
+                background: white !important;
+                color: black !important;
+                border-bottom: 1px solid #eee;
+            }
+            .badge, .tech-badge, .skill-tag, .feature-tag, .role-badge {
+                background: #f0f0f0 !important;
+                color: #333 !important;
+                border: 1px solid #ddd !important;
+            }
+            .card, .code-block, .screenshot-card {
+                background: #f9f9f9 !important;
+                border: 1px solid #ddd !important;
+                box-shadow: none !important;
+            }
+            .code-block pre {
+                color: #333 !important;
+            }
+            .gradient-text {
+                color: #0066cc !important;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 0;
+            position: relative;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .slide:last-child {
+            border-bottom: none;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #ffd757 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #ffd757;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffd757, #ffaa33);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .card {
+            background: rgba(30, 35, 55, 0.6);
+            backdrop-filter: blur(4px);
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 24px;
+            transition: all 0.2s;
+            height: 100%;
+        }
+
+        .screenshot-card {
+            background: #1a1e2b;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.15);
+            overflow: hidden;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
+        }
+
+        .screenshot-preview {
+            background: linear-gradient(135deg, #1e2a3a 0%, #0f1722 100%);
+            padding: 24px;
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .screenshot-preview i {
+            font-size: 48px;
+            color: #ffd757;
+            margin-bottom: 16px;
+        }
+
+        .screenshot-card .caption {
+            padding: 12px;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,215,87,0.2);
+            border: 1px solid rgba(255,215,87,0.3);
+            border-radius: 100px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #ffd757;
+        }
+
+        .tech-badge {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .tech-badge i {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #ffd757;
+        }
+
+        .tech-badge span {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .tech-badge small {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .skill-tag {
+            background: rgba(255,215,87,0.15);
+            border-radius: 30px;
+            padding: 6px 14px;
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-block;
+            margin: 4px 4px 0 0;
+        }
+
+        .feature-tag {
+            background: rgba(46,204,113,0.2);
+            border-radius: 30px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #2ecc71;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .code-block {
+            background: #0f1119;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #e2e8f0;
+            white-space: pre-wrap;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ffd757;
+        }
+
+        .role-card {
+            background: rgba(30,35,55,0.4);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            height: 100%;
+        }
+
+        .role-icon {
+            font-size: 32px;
+            color: #ffd757;
+            margin-bottom: 12px;
+        }
+
+        .role-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .role-card li {
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .role-card li i {
+            color: #ffd757;
+            width: 20px;
+            margin-right: 8px;
+        }
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            padding-top: 40px;
+            color: rgba(255,255,255,0.5);
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 36px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            .container {
+                padding: 0 16px;
+            }
+        }
+
+        .accent-border {
+            border-left: 4px solid #ffd757;
+            padding-left: 16px;
+        }
+
+        .mockup-row {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding: 8px 0;
+        }
+
+        .mockup-mini {
+            min-width: 280px;
+            background: #1a1e2b;
+            border-radius: 16px;
+            padding: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Слайд 1: Титульный лист -->
+    <div class="slide">
+        <div class="container" style="text-align: center;">
+            <div style="margin-bottom: 40px;">
+                <span class="badge" style="background: rgba(255,215,87,0.2);">Международная олимпиада «IT-Планета 2026»</span>
+                <span class="badge" style="margin-left: 12px;">Конкурс «Прикладное программирование if...else»</span>
+            </div>
+            <h1 style="font-size: 72px; margin-bottom: 16px;">Трамплин</h1>
+            <p style="font-size: 24px; color: rgba(255,255,255,0.7); margin-bottom: 48px;">Карьерная платформа для IT-специалистов</p>
+            
+            <div style="margin: 48px 0;">
+                <div class="grid-3" style="max-width: 600px; margin: 0 auto;">
+                    <div class="tech-badge" style="background: rgba(255,255,255,0.05);">
+                        <i class="fab fa-react"></i>
+                        <span>React + Vite</span>
+                    </div>
+                    <div class="tech-badge" style="background: rgba(255,255,255,0.05);">
+                        <i class="fas fa-database"></i>
+                        <span>Go + PostgreSQL</span>
+                    </div>
+                    <div class="tech-badge" style="background: rgba(255,255,255,0.05);">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Yandex Maps API</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 48px;">
+                <p style="font-size: 18px; font-weight: 500;">Команда Arduino team</p>
+                <p style="color: rgba(255,255,255,0.6); margin-top: 8px;">
+                    Журжин Артём Алексеевич | Артёмов Артём Артёмович | Володин Вадим Александрович
+                </p>
+            </div>
+
+            <div class="footer">
+                <i class="fas fa-graduation-cap"></i> Цифровая экосистема для студентов и работодателей
+            </div>
+            <div class="slide-number">1 / 9</div>
+        </div>
+    </div>
+
+    <!-- Слайд 2: Концепция и актуальность -->
+    <div class="slide">
+        <div class="container">
+            <h2>Концепция проекта</h2>
+            <div class="grid-2" style="margin-bottom: 32px;">
+                <div class="card">
+                    <i class="fas fa-rocket" style="font-size: 32px; color: #ffd757; margin-bottom: 16px;"></i>
+                    <h3>Проблема</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Существующие платформы слишком формальны, не учитывают специфику поиска первой работы и стажировки. Студенты теряются в вакансиях, работодатели — в откликах.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chalkboard-user" style="font-size: 32px; color: #ffd757; margin-bottom: 16px;"></i>
+                    <h3>Решение</h3>
+                    <p style="color: rgba(255,255,255,0.7);">«Трамплин» — экосистема, где студенты не просто ищут работу, а строят карьеру с нуля: находят менторов, участвуют в мероприятиях и получают предложения о стажировках на основе навыков и активности.</p>
+                </div>
+            </div>
+            <div class="card" style="background: rgba(46,204,113,0.1); border-color: rgba(46,204,113,0.3);">
+                <div class="grid-2">
+                    <div>
+                        <i class="fas fa-users"></i>
+                        <strong style="margin-left: 8px;">Целевая аудитория</strong>
+                        <ul style="margin-top: 12px; list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 8px;"><i class="fas fa-user-graduate"></i> Студенты и выпускники IT-специальностей</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-building"></i> IT-компании (от стартапов до корпораций)</li>
+                            <li><i class="fas fa-university"></i> Карьерные центры вузов</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <i class="fas fa-heart"></i>
+                        <strong style="margin-left: 8px;">Социальная значимость</strong>
+                        <ul style="margin-top: 12px; list-style: none; padding-left: 0;">
+                            <li style="margin-bottom: 8px;"><i class="fas fa-chart-line"></i> Снижение барьера входа в IT</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-handshake"></i> Нетворкинг и менторство</li>
+                            <li><i class="fas fa-shield-alt"></i> Безопасная модерация контента</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">2 / 9</div>
+        </div>
+    </div>
+
+    <!-- Слайд 3: Архитектура и структурные формы -->
+    <div class="slide">
+        <div class="container">
+            <h2>Архитектура и структурные формы</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <i class="fas fa-layer-group" style="font-size: 28px; color: #ffd757; margin-bottom: 12px;"></i>
+                    <h3>FSD (Feature-Sliced Design)</h3>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Модульная архитектура фронтенда: разделение на слои (app, pages, features, widgets, entities, shared) обеспечивает масштабируемость и переиспользуемость кода.</p>
+                    <div style="margin-top: 16px;">
+                        <span class="skill-tag">app</span>
+                        <span class="skill-tag">pages</span>
+                        <span class="skill-tag">features</span>
+                        <span class="skill-tag">widgets</span>
+                        <span class="skill-tag">entities</span>
+                        <span class="skill-tag">shared</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="fas fa-server" style="font-size: 28px; color: #ffd757; margin-bottom: 12px;"></i>
+                    <h3>Backend на Go</h3>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Высокопроизводительный REST API с JWT-аутентификацией, кэшированием в Redis и хранением в PostgreSQL. Микросервисная структура для гибкости.</p>
+                    <div style="margin-top: 16px;">
+                        <span class="skill-tag">Go Fiber</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">JWT</span>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block" style="margin-top: 24px;">
+                <pre><code>┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   Frontend      │────▶│   API Gateway   │────▶│   Auth Service  │
+│   React + Vite  │◀────│   (Go Fiber)    │◀────│   (JWT, Redis)  │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                               │                         │
+                               ▼                         ▼
+                        ┌─────────────────┐     ┌─────────────────┐
+                        │  PostgreSQL DB  │     │  Redis Cache    │
+                        │  (opportunities,│     │  (sessions,     │
+                        │   users, tags)  │     │   rate limit)   │
+                        └─────────────────┘     └─────────────────┘</code></pre>
+            </div>
+            <div class="slide-number">3 / 9</div>
+        </div>
+    </div>
+
+    <!-- Слайд 4: Стек технологий и аргументация -->
+    <div class="slide">
+        <div class="container">
+            <h2>Стек технологий</h2>
+            <div class="grid-4" style="margin-bottom: 32px;">
+                <div class="tech-badge">
+                    <i class="fab fa-react"></i>
+                    <span>React 18</span>
+                    <small>+ Vite, shadcn/ui</small>
+                </div>
+                <div class="tech-badge">
+                    <i class="fab fa-js"></i>
+                    <span>Go 1.21</span>
+                    <small>высокая производительность</small>
+                </div>
+                <div class="tech-badge">
+                    <i class="fas fa-database"></i>
+                    <span>PostgreSQL</span>
+                    <small>реляционная модель</small>
+                </div>
+                <div class="tech-badge">
+                    <i class="fas fa-memory"></i>
+                    <span>Redis</span>
+                    <small>кэширование, сессии</small>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Аргументация выбора</h3>
+                <ul style="margin-left: 20px; color: rgba(255,255,255,0.8); line-height: 1.8;">
+                    <li><strong>React + Vite</strong> — быстрая разработка, компонентный подход, отличная производительность сборки.</li>
+                    <li><strong>shadcn/ui</strong> — кастомизируемые компоненты, идеально подходят для тёмной темы и современного UI.</li>
+                    <li><strong>Go</strong> — высокая производительность под нагрузкой, отличная поддержка конкурентности, простота деплоя.</li>
+                    <li><strong>PostgreSQL</strong> — надёжность, поддержка JSONB для гибких схем, полнотекстовый поиск.</li>
+                    <li><strong>Redis</strong> — мгновенное кэширование, хранение сессий, rate limiting.</li>
+                    <li><strong>Yandex Maps API</strong> — качественная картографическая база по России, удобная интеграция с React.</li>
+                </ul>
+            </div>
+            <div class="slide-number">4 / 9</div>
+        </div>
+    </div>
+
+    <!-- Слайд 5: Визуальные формы отображения (UI/UX) -->
+    <div class="slide">
+        <div class="container">
+            <h2>Визуальные формы отображения</h2>
+            <p style="margin-bottom: 24px; color: rgba(255,255,255,0.7);">Тёмная тема, градиенты, неоновые акценты — интерфейс, вдохновлённый современными IT-продуктами.</p>
+            <div class="grid-3" style="margin-bottom: 32px;">
+                <div class="mockup-mini">
+                    <i class="fas fa-map-marker-alt" style="font-size: 32px; color: #ffd757;"></i>
+                    <strong style="display: block; margin: 12px 0;">Главная карта</strong>
+                    <p style="font-size: 12px; color: rgba(255,255,255,0.6);">Маркеры с цветовой дифференциацией по типу вакансии, индикатор избранного, балун при наведении.</p>
+                </div>
+                <div class="mockup-mini">
+                    <i class="fas fa-drawer" style="font-size: 32px; color: #ffd757;"></i>
+                    <strong style="display: block; margin: 12px 0;">Drawer с возможностями</strong>
+                    <p style="font-size: 12px; color: rgba(255,255,255,0.6);">Выдвижная панель со списком, фильтрация по навыкам, поиск, сохранение в избранное.</p>
+                </div>
+                <div class="mockup-mini">
+                    <i class="fas fa-user-circle" style="font-size: 32px; color: #ffd757;"></i>
+                    <strong style="display: block; margin: 12px 0;">Модальные окна</strong>
+                    <p style="font-size: 12px; color: rgba(255,255,255,0.6);">Детальная карточка возможности, уведомления, формы регистрации.</p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="screenshot-card">
+                    <div class="screenshot-preview">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p style="margin-top: 12px; font-weight: 500;">Главная страница с картой</p>
+                        <p style="font-size: 12px; color: rgba(255,255,255,0.6);">Маркеры вакансий (жёлтый), стажировок (синий), менторства (фиолетовый)</p>
+                        <div style="margin-top: 16px; display: flex; gap: 12px; justify-content: center;">
+                            <span style="display: inline-block; width: 20px; height: 20px; background: #ffd757; border-radius: 50%;"></span>
+                            <span style="display: inline-block; width: 20px; height: 20px; background: #4a9eff; border-radius: 50%;"></span>
+                            <span style="display: inline-block; width: 20px; height: 20px; background: #c45bff; border-radius: 50%;"></span>
+                        </div>
+                    </div>
+                    <div class="caption">Главная страница: карта + список возможностей</div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-preview">
+                        <i class="fas fa-briefcase"></i>
+                        <p style="margin-top: 12px; font-weight: 500;">Личный кабинет работодателя</p>
+                        <div style="margin-top: 16px; text-align: left; background: rgba(0,0,0,0.3); border-radius: 12px; padding: 12px; width: 100%;">
+                            <p style="font-size: 11px;"><i class="fas fa-building"></i> ООО «Яндекс Технологии»</p>
+                            <p style="font-size: 11px;"><i class="fas fa-chart-line"></i> Frontend (React) — 24 отклика</p>
+                            <p style="font-size: 11px;"><i class="fas fa-graduation-cap"></i> Java-стажёр — 12 откликов</p>
+                        </div>
+                    </div>
+                    <div class="caption">Кабинет работодателя: управление возможностями и откликами</div>
+                </div>
+            </div>
+            <div class="slide-number">5 / 9</div>
+        </div>
+    </div>
+
+    <!-- Слайд 6: Программный код (ключевые фрагменты) -->
+    <div class="slide">
+        <div class="container">
+            <h2>Программная реализация</h2>
+            <div class="grid-2">
+                <div class="code-block">
+                    <pre><code>// useFilters — кастомный хук для фильтрации
+export const useFilters = (opportunities) => {
+  const [selectedSkills, setSelectedSkills] = useState([]);
+  const [selectedLevels, setSelectedLevels] = useState([]);
+
+  const filteredOpportunities = useMemo(() => {
+    return opportunities.filter(opp => {
+      if (selectedSkills.length) {
+        const oppSkills = opp.Tags?.map(t => t.name) || [];
+        if (!selectedSkills.some(s => oppSkills.includes(s))) 
+          return false;
+      }
+      if (selectedLevels.length) {
+        const levelName = getExperienceLevelName(opp.ExperienceLevel);
+        if (!selectedLevels.includes(levelName)) return false;
+      }
+      return true;
+    });
+  }, [opportunities, selectedSkills, selectedLevels]);
+
+  return { filteredOpportunities, toggleSkill, resetFilters };
+};</code></pre>
+                </div>
+                <div class="code-block">
+                    <pre><code>// useNotifications — система уведомлений
+export const useNotifications = () => {
+  const [notifications, setNotifications] = useState([]);
+  
+  const markAsRead = useCallback((id) => {
+    setNotifications(prev =>
+      prev.map(n => n.id === id ? { ...n, isRead: true } : n)
+    );
+  }, []);
+
+  const acceptConnection = useCallback((id) => {
+    setNotifications(prev => prev.filter(n => n.id !== id));
+    // Отправка запроса на добавление в контакты
+  }, []);
+
+  return { notifications, unreadCount, markAsRead, acceptConnection };
+};</code></pre>
+                </div>
+            </div>
+            <div class="code-block" style="margin-top: 16px;">
+                <pre><code>// Backend: Middleware для верификации компании (Go)
+func VerifyCompany(c *fiber.Ctx) error {
+    var req VerifyRequest
+    if err := c.BodyParser(&req); err != nil {
+        return c.Status(400).JSON(fiber.Map{"error": "Invalid request"})
+    }
+    // Проверка ИНН через внешнее API + корпоративная почта
+    if isValidINN(req.INN) && isValidCorporateEmail(req.Email) {
+        updateCompanyStatus(req.CompanyID, "verified")
+        return c.JSON(fiber.Map{"status": "verified"})
+    }
+    return c.Status(400).JSON(fiber.Map{"status": "rejected"})
+}</code></pre>
+            </div>
+            <div class="slide-number">6 / 9</div>
+        </div>
+    </div>
+
+    <!-- Слайд 7: Авторские решения и их обоснование (ИСПРАВЛЕНА ВЁРСТКА) -->
+    <div class="slide">
+        <div class="container">
+            <h2>Авторские решения</h2>
+            <div class="solutions-grid">
+                <div class="card">
+                    <i class="fas fa-shield-alt" style="font-size: 28px; color: #ffd757; margin-bottom: 12px;"></i>
+                    <h3>Верификация компаний</h3>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Двухфакторная верификация: <strong>ИНН + корпоративная почта</strong>. Автоматическая проверка через внешние API и отправка кода подтверждения на домен компании.</p>
+                    <span class="feature-tag"><i class="fas fa-check-circle"></i> Безопасность</span>
+                </div>
+                <div class="card">
+                    <i class="fas fa-user-friends" style="font-size: 28px; color: #ffd757; margin-bottom: 12px;"></i>
+                    <h3>Нетворкинг и приватность</h3>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Список профессиональных контактов, настройки приватности (публичный / только контакты / только я). Контакты могут рекомендовать друг друга на вакансии.</p>
+                    <span class="feature-tag"><i class="fas fa-lock"></i> Гибкая приватность</span>
+                </div>
+                <div class="card">
+                    <i class="fas fa-tachometer-alt" style="font-size: 28px; color: #ffd757; margin-bottom: 12px;"></i>
+                    <h3>Карьерный трекер</h3>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Соискатели могут добавлять предстоящие мероприятия, собеседования и важные даты. Визуализация прогресса.</p>
+                    <span class="feature-tag"><i class="fas fa-chart-line"></i> Управление карьерой</span>
+                </div>
+                <div class="card">
+                    <i class="fas fa-robot" style="font-size: 28px; color: #ffd757; margin-bottom: 12px;"></i>
+                    <h3>Модерация контента</h3>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Кураторы могут модерировать карточки возможностей и верифицировать компании. Возможность создавать других кураторов (только супер-админ).</p>
+                    <span class="feature-tag"><i class="fas fa-clipboard-list"></i> Контроль качества</span>
+                </div>
+            </div>
+            <div class="card" style="background: rgba(255,215,87,0.05); margin-top: 8px;">
+                <p><strong>💡 Дополнительные решения, не описанные в задании:</strong> кастомная система тегов с возможностью добавления, цветовая дифференциация маркеров на карте, анимации переходов, система уведомлений о заявках в контакты, интеграция с GitHub для портфолио.</p>
+            </div>
+            <div class="slide-number">7 / 9</div>
+        </div>
+    </div>
+
+    <!-- Слайд 8: Реализация ролей и функционала (ИСПРАВЛЕН КАБИНЕТ КУРАТОРА) -->
+    <div class="slide">
+        <div class="container">
+            <h2>Реализация ролей</h2>
+            <div class="grid-3" style="margin-bottom: 32px;">
+                <div class="role-card">
+                    <div class="role-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h3>Соискатель</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Просмотр карты и списка возможностей</li>
+                        <li><i class="fas fa-check-circle"></i> Отклики и избранное</li>
+                        <li><i class="fas fa-check-circle"></i> Проф. контакты и настройки приватности</li>
+                        <li><i class="fas fa-check-circle"></i> Карьерный трекер (мероприятия, собеседования)</li>
+                    </ul>
+                </div>
+                <div class="role-card">
+                    <div class="role-icon"><i class="fas fa-building"></i></div>
+                    <h3>Работодатель</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Создание и управление возможностями</li>
+                        <li><i class="fas fa-check-circle"></i> Просмотр откликов и изменение статусов</li>
+                        <li><i class="fas fa-check-circle"></i> Редактирование профиля компании</li>
+                        <li><i class="fas fa-check-circle"></i> Верификация через ИНН и корп. почту</li>
+                    </ul>
+                </div>
+                <div class="role-card">
+                    <div class="role-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>Куратор / Админ</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Модерация карточек возможностей</li>
+                        <li><i class="fas fa-check-circle"></i> Верификация компаний</li>
+                        <li><i class="fas fa-check-circle"></i> Управление пользователями</li>
+                        <li><i class="fas fa-check-circle"></i> Создание новых кураторов</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="screenshot-card">
+                    <div class="screenshot-preview">
+                        <i class="fas fa-id-card" style="font-size: 48px;"></i>
+                        <p style="margin-top: 12px; font-weight: 500;">Кабинет соискателя</p>
+                        <div style="margin-top: 16px; text-align: left; background: rgba(0,0,0,0.3); border-radius: 12px; padding: 12px; width: 100%;">
+                            <p style="font-size: 11px;"><i class="fas fa-user"></i> Анна Кузнецова | МГТУ им. Баумана</p>
+                            <p style="font-size: 11px;"><i class="fas fa-bookmark"></i> Избранное: 3 вакансии</p>
+                            <p style="font-size: 11px;"><i class="fas fa-handshake"></i> Контакты: 2 человека</p>
+                            <p style="font-size: 11px;"><i class="fas fa-chart-simple"></i> Карьерный трекер: 2 мероприятия</p>
+                        </div>
+                    </div>
+                    <div class="caption">Кабинет соискателя: профиль, отклики, контакты, трекер</div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-preview">
+                        <i class="fas fa-gavel" style="font-size: 48px;"></i>
+                        <p style="margin-top: 12px; font-weight: 500;">Кабинет куратора</p>
+                        <div style="margin-top: 16px; text-align: left; background: rgba(0,0,0,0.3); border-radius: 12px; padding: 12px; width: 100%;">
+                            <p style="font-size: 11px;"><i class="fas fa-building"></i> Компании на верификации: 2</p>
+                            <p style="font-size: 11px;">• ООО "Рога и копыта" (ИНН проверен)</p>
+                            <p style="font-size: 11px;">• ИП Иванов (ожидает проверку)</p>
+                            <p style="font-size: 11px; margin-top: 8px;"><i class="fas fa-clipboard-list"></i> Карточки на модерации: 3</p>
+                            <p style="font-size: 11px;">• Аналитик данных (Тинькофф) • Менторская программа (СберТех)</p>
+                        </div>
+                    </div>
+                    <div class="caption">Кабинет куратора: модерация компаний и карточек возможностей</div>
+                </div>
+            </div>
+            <div class="slide-number">8 / 9</div>
+        </div>
+    </div>
+
+    <!-- Слайд 9: Ссылка на видео и заключение -->
+    <div class="slide">
+        <div class="container" style="text-align: center;">
+            <h2>Демонстрация работы</h2>
+            <div class="card" style="max-width: 550px; margin: 32px auto; text-align: center;">
+                <i class="fab fa-youtube" style="font-size: 56px; color: #ffd757; margin-bottom: 20px;"></i>
+                <h3>Видео-презентация проекта</h3>
+                <p style="margin-bottom: 24px; color: rgba(255,255,255,0.7);">Полная демонстрация всех функций приложения: от регистрации до работы с картой, фильтрации, откликов и модерации.</p>
+                <div style="background: rgba(255,255,255,0.1); border-radius: 20px; padding: 20px;">
+                    <i class="fas fa-link" style="margin-right: 8px;"></i>
+                    <strong>Ссылка на видео:</strong>
+                    <p style="font-family: monospace; word-break: break-all; margin-top: 12px; font-size: 14px; color: #ffd757;">
+                        [ССЫЛКА НА ВИДЕО RuTube / VK Видео]
+                    </p>
+                    <p style="margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.5);">
+                        *Ссылка будет добавлена после загрузки видеоролика
+                    </p>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 24px;">
+                <p><i class="fas fa-gavel"></i> Проект не нарушает действующее законодательство, все материалы являются собственной разработкой или используются с разрешения правообладателей.</p>
+                <p style="margin-top: 16px;"><i class="fas fa-trophy"></i> <strong>«Трамплин»</strong> — экосистема для построения IT-карьеры с нуля. Готовы к дальнейшему развитию и интеграции с ведущими вузами и IT-компаниями.</p>
+            </div>
+            <div class="footer" style="margin-top: 48px;">
+                <p>© 2026 Команда Arduino team | Международная олимпиада «IT-Планета 2026»</p>
+            </div>
+            <div class="slide-number">9 / 9</div>
+        </div>
+    </div>
+
+</body>
+</html>

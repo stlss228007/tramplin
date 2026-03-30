@@ -1,0 +1,41 @@
+/* Стили для формы входа */
+
+.formContainer {
+  @apply space-y-5;
+}
+
+.label {
+  @apply block text-sm font-medium text-gray-300 mb-1;
+}
+
+.inputWrapper {
+  @apply relative;
+}
+
+.icon {
+  @apply absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5;
+}
+
+.passwordToggle {
+  @apply absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-300;
+}
+
+.input {
+  @apply w-full pl-10 pr-10 py-2.5 bg-gray-800 rounded-xl text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600;
+}
+
+.input.error {
+  @apply border border-red-500;
+}
+
+.errorMessage {
+  @apply text-red-400 text-xs mt-1 ml-1;
+}
+
+.forgotPasswordLink {
+  @apply text-sm text-blue-400 hover:text-blue-300 transition-colors;
+}
+
+.submitButton {
+  @apply w-full bg-blue-600 hover:bg-blue-700;
+}
